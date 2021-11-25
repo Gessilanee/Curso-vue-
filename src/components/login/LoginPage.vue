@@ -8,7 +8,11 @@
                 class="text-center"
             >
                 <h6 class="display-1 text-uppercase">Login</h6>
-                
+
+                <v-text-field
+                    v-model="userId"
+                    label="ID do Usuário"
+                />
 
                 <v-text-field
                     v-model="token"
@@ -43,28 +47,28 @@
         name: 'LoginPage',
         data() {
             return {
-                token: '',
+                userId: '116372247810376652141',
+                token: 'AIzaSyA6zhLRENrjUY4tf1XGcKuI0x1aUfHYUR0',
             };
         },
         methods: {
             login() {
-                if(this.token) {
+                if (this.userId && this.token) {
                     this.$store.commit('setAuthToken', this.token);
-                    this.$store.commit('setLogged', true);
+                    this.$store.commit('setUserId', this.userId);
                     this.$router.push('/book');
-                } else{
-                     this.$store.commit('showErrorMessage', 'Você deve informar  um Token');
-
+                } else {
+                    this.$store.commit('showErrorMessage', 'Você deve informar um ID de Usuário e um Token');
                 }
             },
             loginAsGuest() {
+                this.$store.commit('setLogged', true);
                 this.$router.push('/book');
-                
             },
         },
     };
 </script>
-//AIzaSyA6zhLRENrjUY4tf1XGcKuI0x1aUfHYUR0
+
 <style scoped>
 
 </style>

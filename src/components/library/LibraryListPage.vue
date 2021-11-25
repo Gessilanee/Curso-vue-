@@ -6,20 +6,20 @@
                 md="4"
                 lg="3"
             >
-                <h6 class="display-1 text-uppercase">Livros</h6>
+                <h6 class="display-1 text-uppercase">Estantes</h6>
             </v-col>
         </v-row>
 
-        <book-list />
+        <library-list />
     </v-container>
 </template>
 
 <script>
-    import BookList from './BookList.vue';
+    import LibraryList from './LibraryList.vue';
 
     export default {
-        name: 'BookListPage',
-        components: { BookList },
+        name: 'LibraryListPage',
+        components: { LibraryList },
     };
 </script>
 

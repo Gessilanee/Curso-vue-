@@ -3,7 +3,7 @@
         app
         dark
         flat
-        color="primary"
+        color="secondary"
     >
         <v-toolbar-title>Projeto - Curso Vue</v-toolbar-title>
 
@@ -16,6 +16,7 @@
                 Livros
             </v-btn>
             <v-btn
+                v-if="$store.state.authToken"
                 text
                 @click="goToCollection"
             >
@@ -39,11 +40,11 @@
                 this.$router.push('/book');
             },
             goToCollection() {
-                this.$router.push('/collection');
+                this.$router.push('/library');
             },
             logout() {
                 this.$store.commit('setAuthToken', '');
-                this.$store.commit('setLogged', false);
+                this.$store.commit('setUserId', '');
                 this.$router.push('/');
             },
         },
